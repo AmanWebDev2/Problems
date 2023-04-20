@@ -1,3 +1,8 @@
+/*
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ */
+
 public class Reversal {
     public static void main(String[] args) {
         
@@ -10,7 +15,7 @@ public class Reversal {
             arr[n-i-1] = arr[i];
             arr[i] = temp;
         }
-        
+
         // reversal
         System.out.print("reversal: ");
         for(int i=0; i<n; i++) {
