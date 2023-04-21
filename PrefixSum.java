@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class PrefixSum {
 
     static void prefixSumApproach1(int arr[][], int r1, int r2, int c1, int c2) {
+        /*
+         * Time Complexity: O(m*n);
+         * Space Complexity: O(1);
+         */
         int sum = 0;
         for(int i=r1; i<=r2; i++) {
             for(int j=c1; j<=c2; j++) {
