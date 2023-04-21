@@ -1,5 +1,8 @@
 import java.util.Arrays;
-
+/*
+ * Time Complexity: O(m*n);
+ * Space Complexity: O(1);
+ */
 public class RotateMatrix {
 
     static void rotate(int arr[][]) {
@@ -40,7 +43,7 @@ public class RotateMatrix {
         };
 
         rotate(arr);
-        
+
         for(var elem: arr) {
             System.out.println(Arrays.toString(elem));
         }
