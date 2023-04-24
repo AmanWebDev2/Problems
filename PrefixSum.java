@@ -16,6 +16,40 @@ public class PrefixSum {
         }
         System.out.println("Prefix sum: "+sum);
     }
+
+    static void prefixSumApproach2(int arr[][], int r1, int r2, int c1, int c2) {
+        // row-wise prefix sum
+        int m = arr.length;
+        int n = arr[0].length;
+        for(int i=0; i<m; i++) {
+            for(int j=1; j<n; j++) {
+                arr[i][j] += arr[i][j-1];
+            }
+        }
+
+        // column-wise prefix sum
+        for (int i = 0; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                arr[j][i] += arr[j-1][i];
+            }
+        }
+
+        // sum region
+        int sum=0, left=0, top=0, repeatedRegion=0, result=0;
+        
+        sum = arr[r2][c2];
+        top = arr[r1-1][c2];
+        left = arr[r2][c1-1];
+        repeatedRegion = arr[r1-1][c1-1];
+
+        result = sum - left - top + repeatedRegion;
+        System.out.println("Result: "+result);
+
+        // for(var elem: arr) {
+        // System.out.println(Arrays.toString(elem));
+        // }
+    }
+
     public static void main(String[] args) {
         try (
             Scanner scan = new Scanner(System.in);
@@ -48,7 +82,8 @@ public class PrefixSum {
             System.out.print("Enter the value of c2 coordinate: ");
             c2 = scan.nextInt();
 
-            prefixSumApproach1(arr, r1, r2, c1, c2);
+            // prefixSumApproach1(arr, r1, r2, c1, c2);
+            prefixSumApproach2(arr, r1, r2, c1, c2);
             
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
